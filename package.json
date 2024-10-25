@@ -13,6 +13,9 @@
     "name": "Mohan Talachutla",
     "email": "mohan.talachutla@gmail.com"
   },
+  "files": [
+    "lib/"
+  ],
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/plugin-transform-runtime": "^7.15.8",
