@@ -1,5 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const { configureMFReactPlugin } =
+  require("@mohantalachutla/mfe-utils/lib/index.cjs").webpack;
 const Dotenv = require("dotenv-webpack");
 const path = require("path");
 const _ = require("lodash");
@@ -64,26 +66,12 @@ module.exports = {
   },
 
   plugins: [
-    new ModuleFederationPlugin({
-      name: mfeConfig.name,
-      filename: "remoteEntry.js",
-      library: { type: "var", name: mfeConfig.name },
-      exposes: {
-        "./App": "./src/App",
-        ...getModules(mfeConfig.modules),
-      },
-      shared: {
-        ...deps,
-        react: {
-          singleton: true,
-          requiredVersion: deps.react,
-        },
-        "react-dom": {
-          singleton: true,
-          requiredVersion: deps["react-dom"],
-        },
-      },
-    }),
+    configureMFReactPlugin(ModuleFederationPlugin)(
+      mfeConfig.name,
+      "remoteEntry.js",
+      getModules(mfeConfig.modules),
+      deps
+    ),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, "../src/index.html"),
     }),
