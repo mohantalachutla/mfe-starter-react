@@ -6,13 +6,12 @@
     "./Sample"
   ],
   "events": {
-    "mfe": [
-      "mfe-starter-event1",
-      "mfe-starter-event2",
-      "mfe-starter-event3"
-    ],
-    "host": [
-      "host-event1"
-    ]
+    "mfe": {
+      "MFE_STARTER_HOST_READY": "MFE_STARTER_HOST_READY",
+      "MFE_STARTER_HOST_DONE": "MFE_STARTER_HOST_DONE"
+    },
+    "host": {
+      "HOST_MFE_STARTER_ACKNOWLEDGE": "HOST_MFE_STARTER_ACKNOWLEDGE"
+    }
   }
 }

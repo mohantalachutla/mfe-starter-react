@@ -1,0 +1,14 @@
+{
+  "name": "mfe_gateway",
+  "url": "http://localhost:8000",
+  "modules": [],
+  "events": {
+    "others": {
+      "OTHERS_GATEWAY_REGISTER": "OTHERS_GATEWAY_REGISTER",
+      "OTHERS_GATEWAY_DONE": "OTHERS_GATEWAY_DONE"
+    },
+    "gateway": {
+      "GATEWAY_OTHERS_ACKNOWLEDGE": "GATEWAY_OTHERS_ACKNOWLEDGE"
+    }
+  }
+}
