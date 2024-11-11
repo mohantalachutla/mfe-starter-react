@@ -1,5 +1,5 @@
 const Home = () => (
-  <div className="container">
+  <div className="container text-center">
     <div>Welcome to mfe-starter Home Page</div>
   </div>
 );
