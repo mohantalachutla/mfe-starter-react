@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import store from "../store";
-import Loader from "./Loader";
+import { Loader } from "./base";
 
 export default MfeWrapper = ({ children }) => {
   return (

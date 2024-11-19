@@ -7,10 +7,8 @@ const config = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    "@storybook/addon-webpack5-compiler-babel",
   ],
-  framework: {
-    name: "@storybook/react-webpack5",
-    options: {},
-  },
+  framework: "@storybook/react-webpack5",
 };
 export default config;

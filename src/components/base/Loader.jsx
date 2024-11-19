@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-export default Loader = () => {
+export const Loader = () => {
   const { loading, loadingType, loadingMessage } = useSelector(
     (state) => state.loader
   );
