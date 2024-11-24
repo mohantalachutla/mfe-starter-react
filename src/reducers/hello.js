@@ -6,11 +6,14 @@ const helloSlice = createSlice({
     message: null,
   },
   reducers: {
-    setMessage: (state, action) => {
+    helloSuccess: (state, action) => {
       state.message = action.payload.message;
+    },
+    helloFailure: (state, action) => {
+      state.message = "";
     },
   },
 });
 
 export default helloSlice.reducer;
-export const { setMessage } = helloSlice.actions;
+export const { helloSuccess, helloFailure } = helloSlice.actions;

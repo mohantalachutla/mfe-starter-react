@@ -31,9 +31,10 @@ const createInjectReducer = (store) => {
   const getReducer = (key) => store.runningReducers[key];
   const injectReducer = (key, reducer) => {
     if (store.runningReducers[key]) return store.runningReducers[key];
-    store.replaceReducer(
-      combineReducers({ ...store.runningReducers, [key]: reducer })
-    );
+    if (typeof reducer !== "function")
+      throw new Error("Reducer must be a function");
+    store.runningReducers[key] = reducer;
+    store.replaceReducer(combineReducers(store.runningReducers));
     return store.runningReducers[key];
   };
   const cancelReducer = (key) => {
@@ -49,7 +50,7 @@ const createInjectReducer = (store) => {
 };
 
 const createReduxStore = ({ middlewares = [] }) => {
-  if (window.__REDUX_STORE__ && window.__REDUX_STORE__.dispatch) {
+  if (!isStoreNull(window.__REDUX_STORE__)) {
     return window.__REDUX_STORE__;
   }
   window.__REDUX_STORE__ = configureStore({
@@ -64,8 +65,21 @@ const createReduxStore = ({ middlewares = [] }) => {
 const store = createReduxStore({ middlewares: [sagaMiddleware] });
 const { injectReducer } = createInjectReducer(store);
 const { injectSaga } = createInjectSaga(store, sagaMiddleware.run);
-injectReducer("rootReducer", rootReducer);
+Object.entries(rootReducer).forEach(([key, value]) => {
+  injectReducer(key, value);
+});
 injectSaga("rootSaga", rootSaga);
 
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+if (isStoreNull(store)) {
+  throw new Error("Failed to create store");
+}
+console.info({ store });
 export default store;
+
+function isStoreNull(store) {
+  if (store && store?.dispatch) {
+    return false;
+  }
+  return true;
+}

@@ -1,7 +1,9 @@
-import { takeEvery } from "redux-saga/effects";
+import { all } from "redux-saga/effects";
 
 import helloSaga from "./helloSaga";
 
-export default rootSaga = function* () {
-  yield takeEvery("*", helloSaga);
+export const rootSaga = function* () {
+  yield all([helloSaga()]);
 };
+
+export default rootSaga;

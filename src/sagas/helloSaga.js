@@ -1,22 +1,26 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 
 import { getHello } from "../api";
-import { loadingOff, loadingOn, a } from "../reducers/loader";
-import { setMessage } from "../reducers/hello";
-import { showError } from "../reducers/modal";
-import { hello } from "../actions";
+import { loadingOff, loadingOn } from "../reducers/loader";
+import { helloSuccess, helloFailure } from "../reducers/hello";
+import { showAlert } from "../reducers/modal";
+import { helloAction } from "../actions";
+import { ALERT_TYPES } from "../constants";
 
 const helloSagaHandler = function* (payload) {
   yield put(loadingOn());
   try {
     const { data } = yield call(getHello, payload);
-    yield put(setMessage(data));
+    yield put(helloSuccess(data));
   } catch (error) {
-    yield put(showError({ message: error.message }));
+    yield put(helloFailure());
+    yield put(showAlert({ type: ALERT_TYPES.ERROR, message: error.message }));
   }
   yield put(loadingOff());
 };
 
-export default helloSaga = function* (payload) {
-  yield takeLatest(hello.type, helloSagaHandler, payload);
+const helloSaga = function* () {
+  yield takeLatest(helloAction.type, helloSagaHandler);
 };
+
+export default helloSaga;

@@ -1,7 +1,7 @@
 import "mfe-helpers/events/handlers";
 import { useEffect } from "react";
 import { actions } from "./mfe-helpers";
-import { withWrapper } from "./components/MfeWrapper";
+import { withWrapper } from "./components/common/AppWrapper";
 // Default module to ba exported
 const App = () => {
   useEffect(() => {

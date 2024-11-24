@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Card, Button, Rating } from "./base";
-import { HiShoppingCart } from "../icons";
+import { ShoppingCartIcon } from "../icons";
 export function Product({ name, id, description, price, image, rating }) {
   return (
     <Card className="max-w-sm md:w-72" imgAlt={name} imgSrc={image} id={id}>
@@ -16,7 +16,7 @@ export function Product({ name, id, description, price, image, rating }) {
           ${price}
         </div>
         <Button>
-          <HiShoppingCart className="mr-2 h-5 w-5" />
+          <ShoppingCartIcon className="mr-2 h-5 w-5" />
           Add to cart
         </Button>
       </div>
@@ -32,9 +32,4 @@ Product.prototypes = {
   price: PropTypes.number.isRequired,
   image: PropTypes.string,
   rating: PropTypes.number,
-};
-
-Product.defaultProps = {
-  name: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
-  price: 599,
 };

@@ -1,3 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
 
-export const hello = createAction("HELLO_SAGA", (payload) => payload);
+export const helloAction = createAction("hello/request", (payload) => ({
+  payload,
+}));

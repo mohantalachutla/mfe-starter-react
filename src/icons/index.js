@@ -1,3 +1,3 @@
 import { HiShoppingCart } from "react-icons/hi";
 
-export { HiShoppingCart };
+export { HiShoppingCart as ShoppingCartIcon };
