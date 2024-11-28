@@ -1,5 +1,5 @@
 {
-  "name": "mfe_starter",
+  "name": "@mohantalachutla/mfe_starter",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production --config ./webpack/webpack.config.js ",
@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
+    "@mohantalachutla/inject-store": "^1.0.0",
     "@mohantalachutla/mfe-utils": "^1.0.0",
     "@reduxjs/toolkit": "^2.3.0",
     "axios": "^1.7.7",
