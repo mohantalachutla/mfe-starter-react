@@ -1,4 +1,8 @@
-import { storybookWebpackConfig } from "../scripts/storybook";
+import {
+  storybookBabelConfig,
+  storybookTypescriptConfig,
+  storybookWebpackConfig,
+} from "../scripts/storybook";
 
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
@@ -9,9 +13,13 @@ const config = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
-    "@storybook/addon-webpack5-compiler-babel",
   ],
-  framework: "@storybook/react-webpack5",
+  framework: {
+    name: "@storybook/react-webpack5",
+    options: {},
+  },
   webpackFinal: storybookWebpackConfig,
+  babel: storybookBabelConfig,
+  typescript: storybookTypescriptConfig,
 };
 export default config;
