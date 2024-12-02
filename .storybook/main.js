@@ -16,10 +16,23 @@ const config = {
   ],
   framework: {
     name: "@storybook/react-webpack5",
-    options: {},
+    options: {
+      builder: {
+        useSWC: true,
+      },
+    },
   },
+  swc: () => ({
+    jsc: {
+      transform: {
+        react: {
+          runtime: "automatic",
+        },
+      },
+    },
+  }),
   webpackFinal: storybookWebpackConfig,
-  babel: storybookBabelConfig,
+  babel: storybookBabelConfig, // using swc for now
   typescript: storybookTypescriptConfig,
 };
 export default config;
