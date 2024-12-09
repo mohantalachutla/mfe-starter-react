@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { webpack } from '@mohantalachutla/mfe-utils';
 
-import ErrorBoundary from 'components/commons/ErrorBoundary';
+import ErrorBoundary from 'components/common/ErrorBoundary';
 
 const MfeLoader = ({
   loaderOptions: { url, name, moduleName, defaultComponent, enableCache },

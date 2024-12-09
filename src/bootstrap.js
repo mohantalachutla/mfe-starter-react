@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client';
 import 'mfe-helpers/events/handlers';
 import './index.css';
 import Home from './Home';
-import ErrorBoundary from 'components/commons/ErrorBoundary';
+import ErrorBoundary from 'components/common/ErrorBoundary';
 
 const rootElement = document.getElementById('app');
 if (!rootElement) throw new Error('Failed to find the root element');
