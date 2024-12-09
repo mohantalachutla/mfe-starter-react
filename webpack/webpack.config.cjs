@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 
-const commonConfig = require('./webpack.common.js');
+const commonConfig = require('./webpack.common.cjs');
+const appConfig = require('./webpack.app.cjs');
 
 /**
  * The function returns a webpack configuration object based on mode.
@@ -16,17 +17,17 @@ module.exports = (env, { mode }) => {
   try {
     switch (mode) {
       case 'development':
-        config = require('./webpack.dev.js');
+        config = require('./webpack.dev.cjs');
         break;
       case 'production':
-        config = require('./webpack.prod.js');
+        config = require('./webpack.prod.cjs');
         break;
       default:
         throw new Error(
           'webpack/webpack.config.js: Environment not set or not found'
         );
     }
-    return merge(commonConfig, config);
+    return merge(commonConfig, config, appConfig);
   } catch {
     throw new Error(
       'webpack/webpack.config.js: Environment not set or not found'

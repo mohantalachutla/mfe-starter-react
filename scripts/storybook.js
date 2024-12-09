@@ -1,4 +1,4 @@
-import webpackCommon from '../webpack/webpack.common';
+import webpackCommon from '../webpack/webpack.common.cjs';
 import babelConfig from '../babel.config';
 
 export const storybookWebpackConfig = async (config) => {
