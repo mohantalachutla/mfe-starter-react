@@ -1,1 +1,1 @@
-export { consumes, produces, actions } from "./events";
+export { consumes, produces, actions } from './events';

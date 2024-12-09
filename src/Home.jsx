@@ -1,5 +1,5 @@
-import { Card } from "flowbite-react";
-import Page from "./pages/Page/Pure";
+import { Card } from 'flowbite-react';
+import Page from './pages/Page/Pure';
 
 const Home = () => (
   <div className="container">

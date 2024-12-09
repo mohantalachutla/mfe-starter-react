@@ -1,1 +1,1 @@
-export { Banner } from "flowbite-react";
+export { Banner } from 'flowbite-react';

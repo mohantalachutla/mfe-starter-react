@@ -1,29 +1,29 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-import { ALERT_TYPES, BANNER_TYPES, MODAL_TYPES } from "../constants";
+import { ALERT_TYPES, BANNER_TYPES, MODAL_TYPES } from '../constants';
 
 const MODAL_DEFAULTS = {
   display: false,
   type: MODAL_TYPES.DEFAULT,
-  header: "",
-  body: "",
-  footer: "",
+  header: '',
+  body: '',
+  footer: '',
 };
 
 const BANNER_DEFAULTS = {
   display: false,
-  message: "",
+  message: '',
   type: BANNER_TYPES.SUCCESS,
 };
 
 const ALERT_DEFAULTS = {
   display: false,
-  message: "",
+  message: '',
   type: BANNER_TYPES.SUCCESS,
 };
 
 const modalSlice = createSlice({
-  name: "modal",
+  name: 'modal',
   initialState: {
     modal: MODAL_DEFAULTS,
     banner: BANNER_DEFAULTS,
@@ -31,7 +31,7 @@ const modalSlice = createSlice({
   },
   reducers: {
     showModal: (state, action) => {
-      const { type = MODAL_TYPES.DEFAULT, ...payload } = action?.payload;
+      const { type = MODAL_TYPES.DEFAULT, ...payload } = action?.payload ?? {};
       if (type === MODAL_TYPES.DEFAULT) {
         state.modal.body = action?.payload?.body;
         state.modal.header = action?.payload?.header;

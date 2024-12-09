@@ -1,1 +1,1 @@
-export { Card } from "flowbite-react";
+export { Card } from 'flowbite-react';

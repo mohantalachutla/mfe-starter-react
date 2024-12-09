@@ -1,1 +1,1 @@
-import("./bootstrap.js"); // this should be impoted by dynamic import
+import('./bootstrap.js'); // this should be impoted by dynamic import

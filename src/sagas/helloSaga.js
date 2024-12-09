@@ -1,11 +1,11 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { getHello } from "../api";
-import { loadingOff, loadingOn } from "../reducers/loader";
-import { helloSuccess, helloFailure } from "../reducers/hello";
-import { showAlert } from "../reducers/modal";
-import { helloAction } from "../actions";
-import { ALERT_TYPES } from "../constants";
+import { getHello } from '../api';
+import { loadingOff, loadingOn } from '../reducers/loader';
+import { helloSuccess, helloFailure } from '../reducers/hello';
+import { showAlert } from '../reducers/modal';
+import { helloAction } from '../actions';
+import { ALERT_TYPES } from '../constants';
 
 const helloSagaHandler = function* (payload) {
   yield put(loadingOn());

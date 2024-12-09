@@ -1,1 +1,1 @@
-export { Modal } from "flowbite-react";
+export { Modal } from 'flowbite-react';

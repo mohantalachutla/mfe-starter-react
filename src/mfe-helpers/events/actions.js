@@ -1,7 +1,7 @@
-import { registry } from "@mohantalachutla/mfe-utils";
+import { registry } from '@mohantalachutla/mfe-utils';
 
-import mfeConfig from "#/mfe.config.json";
-import { consumes, produces } from "./constants";
+import mfeConfig from '#/mfe.config.json';
+import { consumes, produces } from './constants';
 
 const dispatchReady = () => {
   registry.dispatch(

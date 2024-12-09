@@ -1,6 +1,6 @@
-import { all } from "redux-saga/effects";
+import { all } from 'redux-saga/effects';
 
-import helloSaga from "./helloSaga";
+import helloSaga from './helloSaga';
 
 export const rootSaga = function* () {
   yield all([helloSaga()]);

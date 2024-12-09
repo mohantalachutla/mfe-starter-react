@@ -1,7 +1,7 @@
-import React, { useMemo } from "react";
-import { webpack } from "@mohantalachutla/mfe-utils";
+import React, { useMemo } from 'react';
+import { webpack } from '@mohantalachutla/mfe-utils';
 
-import ErrorBoundary from "components/commons/ErrorBoundary";
+import ErrorBoundary from 'components/commons/ErrorBoundary';
 
 const MfeLoader = ({
   loaderOptions: { url, name, moduleName, defaultComponent, enableCache },
@@ -24,8 +24,8 @@ const MfeLoader = ({
   return (
     <div
       className="mfe-loader"
-      id={"mfe-loader-" + name + moduleName}
-      key={"mfe-loader-" + name + moduleName}
+      id={'mfe-loader-' + name + moduleName}
+      key={'mfe-loader-' + name + moduleName}
     >
       <ErrorBoundary>
         <React.Suspense fallback={<div>Loading...</div>}>

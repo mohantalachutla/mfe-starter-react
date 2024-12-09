@@ -1,14 +1,14 @@
-import { fn } from "@storybook/test";
-import Product from "../../pages/Page";
-import { appleWatch } from "../assets";
+import { fn } from '@storybook/test';
+import Product from '../../pages/Page';
+import { appleWatch } from '../assets';
 
 export default {
-  title: "Pages/Product",
+  title: 'Pages/Product',
   component: Product,
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
     addToCart: fn(),
   },
@@ -18,17 +18,17 @@ export const Default = {
   args: {
     products: [
       {
-        name: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
+        name: 'Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport',
         description:
-          "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
+          'Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport',
         price: 599,
         image: appleWatch,
         rating: 4,
       },
       {
-        name: "Apple Watch Series 8 GPS, Aluminium Case, Starlight Sport",
+        name: 'Apple Watch Series 8 GPS, Aluminium Case, Starlight Sport',
         description:
-          "Apple Watch Series 8 GPS, Aluminium Case, Starlight Sport",
+          'Apple Watch Series 8 GPS, Aluminium Case, Starlight Sport',
         price: 699,
         image: appleWatch,
         rating: 5,

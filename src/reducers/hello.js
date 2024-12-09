@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const helloSlice = createSlice({
-  name: "hello",
+  name: 'hello',
   initialState: {
     message: null,
   },
@@ -9,8 +9,8 @@ const helloSlice = createSlice({
     helloSuccess: (state, action) => {
       state.message = action.payload.message;
     },
-    helloFailure: (state, action) => {
-      state.message = "";
+    helloFailure: (state) => {
+      state.message = '';
     },
   },
 });

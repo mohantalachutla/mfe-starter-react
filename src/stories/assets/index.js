@@ -1,3 +1,3 @@
-import appleWatch from "./apple-watch.png";
+import appleWatch from './apple-watch.png';
 
 export { appleWatch };

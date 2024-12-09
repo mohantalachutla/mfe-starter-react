@@ -1,9 +1,9 @@
-import { Provider } from "react-redux";
-import store from "../../store";
-import { Loader } from "./Loader";
-import ErrorBoundary from "./ErrorBoundary";
-import GlobalModal from "./GlobalModal";
-import GlobalAlert from "./GlobalAlert";
+import { Provider } from 'react-redux';
+import store from '../../store';
+import { Loader } from './Loader';
+import ErrorBoundary from './ErrorBoundary';
+import GlobalModal from './GlobalModal';
+import GlobalAlert from './GlobalAlert';
 
 export const AppWrapper = ({ children }) => {
   return (
@@ -22,9 +22,8 @@ export const AppWrapper = ({ children }) => {
 
 export default AppWrapper;
 
-export const withWrapper = (Component) => (props) =>
-  (
-    <AppWrapper>
-      <Component {...props} />
-    </AppWrapper>
-  );
+export const withWrapper = (Component) => (props) => (
+  <AppWrapper>
+    <Component {...props} />
+  </AppWrapper>
+);

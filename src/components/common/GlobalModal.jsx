@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-import { MODAL_TYPES } from "../../constants";
-import { hideModal } from "../../reducers/modal";
-import { Modal } from "../base";
+import { useDispatch, useSelector } from 'react-redux';
+import { MODAL_TYPES } from '../../constants';
+import { hideModal } from '../../reducers/modal';
+import { Modal } from '../base';
 
 const GlobalModal = () => {
   const dispatch = useDispatch();

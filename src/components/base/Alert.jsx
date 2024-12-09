@@ -1,4 +1,4 @@
-import { Alert as FlowbiteAlert } from "flowbite-react";
+import { Alert as FlowbiteAlert } from 'flowbite-react';
 
 export const Alert = ({ children, type, ...props }) => {
   return (

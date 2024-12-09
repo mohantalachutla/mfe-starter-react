@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Card, Button, Rating } from "./base";
-import { ShoppingCartIcon } from "../icons";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Card, Button, Rating } from './base';
+import { ShoppingCartIcon } from '../icons';
 export function Product({ name, id, description, price, image, rating }) {
   return (
     <Card className="max-w-sm md:w-72" imgAlt={name} imgSrc={image} id={id}>

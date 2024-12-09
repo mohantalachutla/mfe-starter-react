@@ -1,4 +1,4 @@
-import mfeConfig from "#/mfe.config.json";
+import mfeConfig from '#/mfe.config.json';
 const { mfe, host } = mfeConfig.events;
 
 export const consumes = {

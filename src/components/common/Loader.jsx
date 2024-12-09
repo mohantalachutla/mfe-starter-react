@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import { Spinner as FlowbiteSpinner } from "flowbite-react";
+import { useSelector } from 'react-redux';
+import { Spinner as FlowbiteSpinner } from 'flowbite-react';
 
 export const Loader = () => {
   const {
@@ -15,9 +15,9 @@ export const Loader = () => {
 
 const _Loader = (props) => {
   switch (props?.type) {
-    case "spinner":
+    case 'spinner':
       return <Spinner {...props} />;
-    case "text":
+    case 'text':
       return <DefaultLoader {...props} />;
     default:
       return <Spinner {...props} />;
@@ -25,7 +25,7 @@ const _Loader = (props) => {
 };
 
 const DefaultLoader = ({ message }) => {
-  <div>{message || "Loading..."}</div>;
+  <div>{message || 'Loading...'}</div>;
 };
 
 const Spinner = ({ message }) => {

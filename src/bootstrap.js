@@ -1,18 +1,25 @@
-import "mfe-helpers/events/handlers";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { registry, webpack } from "@mohantalachutla/mfe-utils";
-import "./index.css";
-import Home from "./Home";
-import mfeConfig from "#/mfe.config.json";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-const rootElement = document.getElementById("app");
-if (!rootElement) throw new Error("Failed to find the root element");
+// registering all events
+import 'mfe-helpers/events/handlers';
+import './index.css';
+import Home from './Home';
+import ErrorBoundary from 'components/commons/ErrorBoundary';
+
+const rootElement = document.getElementById('app');
+if (!rootElement) throw new Error('Failed to find the root element');
 
 // TODO:validate config file
 
 const root = ReactDOM.createRoot(rootElement);
 
-root.render(<Home />);
+root.render(
+  <React.StrictMode>
+    <ErrorBoundary>
+      <Home />
+    </ErrorBoundary>
+  </React.StrictMode>
+);
 
 // TODO: register to be redis

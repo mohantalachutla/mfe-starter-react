@@ -1,5 +1,5 @@
-import { Rating } from "flowbite-react";
-import _ from "lodash";
+import { Rating } from 'flowbite-react';
+import _ from 'lodash';
 
 const RatingComponent = function ({ rating, total = 5 }) {
   return (
