@@ -12,6 +12,9 @@
     "type": "git",
     "url": "https://github.com/mohantalachutla/mfe-starter.git"
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "lib/index.d.ts",

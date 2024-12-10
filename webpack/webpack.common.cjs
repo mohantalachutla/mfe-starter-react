@@ -2,7 +2,6 @@ const path = require('path');
 
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-// const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 
 const packageJson = require(path.resolve(__dirname, '../package.json'));
 const appUrl = `${packageJson.app.host}:${packageJson.app.port}/`;
@@ -51,6 +50,5 @@ module.exports = {
       template: path.resolve(__dirname, '../src/index.html'),
     }),
     new Dotenv(),
-    // new NodePolyfillPlugin(), // to inject polyfills
   ],
 };
