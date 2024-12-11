@@ -27,11 +27,6 @@
   "files": [
     "lib/"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "app": {
     "host": "http://localhost",
     "port": 8081
@@ -47,7 +42,11 @@
     "lint:fix": "eslint --fix",
     "lint:format": "prettier ./**/*.{js,jsx,ts,tsx,mjs,cjs,json} --write .",
     "lint:staged": "lint-staged",
-    "lint:all": "npm run lint:fix && npm run lint:format"
+    "lint:all": "npm run lint:fix && npm run lint:format",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prepare": "husky"
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
@@ -85,13 +84,17 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
+    "@types/jest": "^29.5.14",
     "autoprefixer": "^10.4.20",
+    "babel-jest": "^29.7.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
     "dotenv-webpack": "^8.0.1",
+    "eslint-plugin-jest": "^28.9.0",
     "globals": "^15.13.0",
     "html-webpack-plugin": "^5.3.2",
     "husky": "^9.1.7",
+    "jest": "^29.7.0",
     "lint-staged": "^15.2.10",
     "postcss": "^8.4.48",
     "postcss-loader": "^4.1.0",

@@ -47,15 +47,25 @@ const isDev = function () {
   return process.env.NODE_ENV === 'development';
 };
 
-const getFallbackConfig = (config={}) => (_.chain(config).toPairs().filter( ([key, value]) => value === false && _.isString(key)).fromPairs().value() ?? {});
-const getPolyfillConfig = (config={}) => (_.chain(config).toPairs().filter( ([key, value]) => value === true && _.isString(key)).map( ([key]) => key).value() ?? []);
+const getFallbackConfig = (config = {}) =>
+  _.chain(config)
+    .toPairs()
+    .filter(([key, value]) => value === false && _.isString(key))
+    .fromPairs()
+    .value() ?? {};
+const getPolyfillConfig = (config = {}) =>
+  _.chain(config)
+    .toPairs()
+    .filter(([key, value]) => value === true && _.isString(key))
+    .map(([key]) => key)
+    .value() ?? [];
 // const getPolyfillPlugin = (config) => new NodePolyfillPlugin({ additionalAliases: getPolyfillConfig(config) });
-const getNodeExternalsPlugin =  () =>    {
-  const NodeExternals = require('webpack-node-externals')
+const getNodeExternalsPlugin = () => {
+  const NodeExternals = require('webpack-node-externals');
   return NodeExternals({
     modulesDir: path.resolve(__dirname, '../node_modules'),
-  })
-}
+  });
+};
 
 module.exports = {
   getFiles,
@@ -64,5 +74,5 @@ module.exports = {
   getPolyfillConfig,
   getFallbackConfig,
   // getPolyfillPlugin,
-  getNodeExternalsPlugin
-}
+  getNodeExternalsPlugin,
+};
