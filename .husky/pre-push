@@ -1,0 +1,3 @@
+#!/bin/sh
+echo 'Running husky pre-push\n\n'
+npm run build

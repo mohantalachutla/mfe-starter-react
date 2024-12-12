@@ -12,9 +12,6 @@ module.exports = {
     },
   },
 
-  testPathIgnorePatterns: ['/node_modules/', '/lib/'],
-  watchPathIgnorePatterns: ['/node_modules/', '/lib/'],
-
   // collectCoverage: true, don't collect coverage by default
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
@@ -22,12 +19,36 @@ module.exports = {
     '!src/**/index.{js,jsx,ts,tsx}',
   ],
 
-  // testEnvironment: 'jsdom',
+  watchPathIgnorePatterns: [
+    '/node_modules/',
+    '/lib/',
+    '/dist/',
+    '/public/',
+    '/coverage/',
+    '/webpack/',
+  ],
+
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/lib/',
+    '/dist/',
+    '/public/',
+    '/coverage/',
+    '/webpack/',
+  ],
+
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+
+  testEnvironment: 'jsdom',
 
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
 
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest', // Use babel-jest for JS and TS files
   },
-  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+  transformIgnorePatterns: [
+    '/node_modules/(?!(@mohantalachutla/*))',
+    '\\.pnp\\.[^\\\/]+$',
+  ],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.cjs'],
 };
