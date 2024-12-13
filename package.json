@@ -27,6 +27,10 @@
   "files": [
     "lib/"
   ],
+  "browserslist": [
+    "defaults and fully supports es6-module",
+    "maintained node versions"
+  ],
   "app": {
     "host": "http://localhost",
     "port": 8081
