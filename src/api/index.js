@@ -1,5 +1,5 @@
-import axios from 'axios';
+import httpClient from '../utils/httpClient';
 
 export const getHello = () => {
-  return axios.get('/api/hello');
+  return httpClient.get('/api/hello');
 };
