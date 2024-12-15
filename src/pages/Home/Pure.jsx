@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { withWrapper } from 'components/common/AppWrapper';
 import { helloAction } from '../../actions';
-const Page = ({ products = [] } = props) => {
+const ProductPage = ({ products = [] } = props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (products.length === 0) {
@@ -32,8 +32,8 @@ const Page = ({ products = [] } = props) => {
     </Container>
   );
 };
-export default withWrapper(Page);
+export default withWrapper(ProductPage);
 
-Page.propTypes = {
+ProductPage.propTypes = {
   products: PropTypes.array,
 };

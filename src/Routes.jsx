@@ -10,12 +10,14 @@ import { getToken, getUser } from './utils/auth';
 import { loginSuccess } from './reducers/auth';
 import { useEffect } from 'react';
 import useIsLoggedIn from './hooks/useIsLoggedIn';
+import useToken from './hooks/useToken';
 const AppRoutes = () => {
   useAuthentic();
   const isLogged = useIsLoggedIn();
   const dispatch = useDispatch();
+  const token = useToken();
   useEffect(() => {
-    if (getToken()) {
+    if (!token && getToken()) {
       dispatch(
         loginSuccess({
           user: getUser(),
