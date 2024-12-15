@@ -1,4 +1,4 @@
-export const Col = ({ children, size, offset, className }) => {
+const Col = ({ children, size, offset, className }) => {
   const classes = [
     `col${size ? '-' + size : ''}${offset ? '-' + offset : ''}`,
     className,
@@ -9,3 +9,5 @@ export const Col = ({ children, size, offset, className }) => {
     </div>
   );
 };
+
+export default Col;

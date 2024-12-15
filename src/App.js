@@ -1,12 +1,12 @@
-import 'mfe-helpers/events/handlers';
-import { useEffect } from 'react';
-import { actions } from './mfe-helpers';
-import Page from './pages/Page';
-// Default module to ba exported
-const App = () => {
-  useEffect(() => {
-    actions.dispatchReady();
-  }, []);
-  return <Page />;
+import { HashRouter } from 'react-router';
+import AppWrapper from './components/common/AppWrapper';
+import AppRoutes from './Routes';
+export default () => {
+  return (
+    <AppWrapper>
+      <HashRouter>
+        <AppRoutes />
+      </HashRouter>
+    </AppWrapper>
+  );
 };
-export default App;

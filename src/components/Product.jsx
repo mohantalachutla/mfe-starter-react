@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Button, Rating } from './base';
+import Card from './base/Card';
+import Button from './base/Button';
+import Rating from './base/Rating';
 import { ShoppingCartIcon } from '../icons';
 export function Product({ name, id, description, price, image, rating }) {
   return (

@@ -1,7 +1,7 @@
 {
   "name": "mfe_starter",
   "url": "http://localhost:8081",
-  "modules": ["./Page", "./Sample"],
+  "modules": ["./Home", "./Sample"],
   "events": {
     "mfe": {
       "MFE_STARTER_HOST_READY": "MFE_STARTER_HOST_READY",

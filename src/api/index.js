@@ -1,5 +1,5 @@
 import httpClient from '../utils/httpClient';
 
-export const getHello = () => {
+export const hello = () => {
   return httpClient.get('/api/hello');
 };

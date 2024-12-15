@@ -14,4 +14,4 @@ const RatingComponent = function ({ rating, total = 5 }) {
   );
 };
 
-export { RatingComponent as Rating };
+export default RatingComponent;

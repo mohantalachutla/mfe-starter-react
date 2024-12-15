@@ -4,16 +4,17 @@ import { Loader } from './Loader';
 import ErrorBoundary from './ErrorBoundary';
 import GlobalModal from './GlobalModal';
 import GlobalAlert from './GlobalAlert';
+import Noop from './Noop';
 
-export const AppWrapper = ({ children }) => {
+const AppWrapper = ({ children, AdditionalWrapper = Noop }) => {
   return (
-    <div id="mfe-wrapper">
+    <div id="app-wrapper">
       <ErrorBoundary>
         <Provider store={store}>
           <Loader />
           <GlobalModal />
           <GlobalAlert />
-          {children}
+          <AdditionalWrapper>{children}</AdditionalWrapper>
         </Provider>
       </ErrorBoundary>
     </div>
@@ -22,8 +23,8 @@ export const AppWrapper = ({ children }) => {
 
 export default AppWrapper;
 
-export const withWrapper = (Component) => (props) => (
-  <AppWrapper>
+export const withWrapper = (Component, AdditionalWrapper) => (props) => (
+  <AppWrapper AdditionalWrapper={AdditionalWrapper}>
     <Component {...props} />
   </AppWrapper>
 );

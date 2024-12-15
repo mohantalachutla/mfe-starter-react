@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Col } from '../../components/base';
+import Container from '../../components/base/Container';
+import Row from '../../components/base/Row';
+import Col from '../../components/base/Col';
 import { Product } from '../../components/Product';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';

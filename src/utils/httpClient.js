@@ -1,6 +1,7 @@
 import axios from 'axios';
 import packageJson from '../../package.json';
 import { API_URL } from '../env';
+import { getToken } from './auth';
 
 class HttpClient {
   constructor(baseURL = '', defaultHeaders = {}) {
@@ -22,14 +23,14 @@ class HttpClient {
   initializeRequestInterceptor() {
     this.axiosInstance.interceptors.request.use(
       (config) => {
-        const token = localStorage.getItem(packageJson.name + 'AccessToken');
+        const token = getToken();
         if (token) {
           config.headers['Authorization'] = `Bearer ${token}`;
         }
         return config;
       },
       (error) => {
-        console.error('Request Error: ', error);
+        // console.error('Request Error: ', error);
         return Promise.reject(error);
       }
     );
@@ -41,18 +42,27 @@ class HttpClient {
   initializeResponseInterceptor() {
     this.axiosInstance.interceptors.response.use(
       (response) => {
-        return response.data;
+        const { data } = response;
+        if (data.responseCode === 400) {
+          throw new Error(data.responseMessage);
+        }
+        return data.payload;
       },
       (error) => {
-        console.error('Response Error: ', error);
-        if (error.response) {
-          // Handle 4xx, 5xx errors
-          if (error.response.status === 401) {
-            console.warn('Unauthorized! Redirecting to login...');
-            window.location.href = '/login';
-          }
+        // console.error('Response Error: ', error);
+        if (error.response?.status === 401) {
+          throw new Error('Unauthorized');
         }
-        return Promise.reject(error);
+        if (error.response?.status === 403) {
+          throw new Error('Forbidden');
+        }
+        if (error.response?.status === 404) {
+          throw new Error('Not Found');
+        }
+        if (error.response && error.response?.data) {
+          const { data } = error.response;
+          throw new Error(data.responseMessage);
+        }
       }
     );
   }

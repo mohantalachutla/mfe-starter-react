@@ -1,6 +1,6 @@
 import { Alert as FlowbiteAlert } from 'flowbite-react';
 
-export const Alert = ({ children, type, ...props }) => {
+const Alert = ({ children, type, ...props }) => {
   return (
     <FlowbiteAlert {...props} color={type}>
       {children}
@@ -15,3 +15,5 @@ export const ErrorAlert = ({ children, message, body, ...props }) => {
     </Alert>
   );
 };
+
+export default Alert;

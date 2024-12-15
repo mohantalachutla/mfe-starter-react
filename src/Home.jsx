@@ -1,5 +1,5 @@
-import { Card } from 'flowbite-react';
-import Page from './pages/Page/Pure';
+import Card from './components/base/Card';
+import Pure from './pages/Home/Pure';
 
 const Home = () => (
   <div className="container">
@@ -7,7 +7,7 @@ const Home = () => (
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
         Welcome to mfe-starter Home Page
       </h5>
-      <Page />
+      <Pure />
     </Card>
   </div>
 );

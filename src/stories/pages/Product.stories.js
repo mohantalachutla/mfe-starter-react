@@ -1,5 +1,5 @@
 import { fn } from '@storybook/test';
-import Product from '../../pages/Page';
+import Product from '../../pages/Home';
 import { appleWatch } from '../assets';
 
 export default {

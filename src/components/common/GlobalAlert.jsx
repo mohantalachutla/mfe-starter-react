@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ALERT_TYPES } from '../../constants';
-import { Alert } from '../base';
+import Alert from '../base/Alert';
 import { hideAlert } from '../../reducers/modal';
 
 const GlobalAlert = () => {
@@ -12,7 +12,7 @@ const GlobalAlert = () => {
   }
   return (
     <Alert type={type} onDismiss={() => dispatch(hideAlert())}>
-      {message || children}
+      {message || 'Something went wrong!'}
     </Alert>
   );
 };
