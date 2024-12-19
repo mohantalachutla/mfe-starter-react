@@ -1,8 +1,4 @@
-import {
-  createReduxStore,
-  createInjectReducer,
-  createInjectSaga,
-} from '@mohantalachutla/inject-store';
+import { createReduxStore } from '@mohantalachutla/inject-store';
 import rootReducer from '../reducers';
 import rootSaga from '../sagas';
 import createSagaMiddleware from 'redux-saga';
@@ -10,13 +6,17 @@ import createSagaMiddleware from 'redux-saga';
 //sage middleware
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createReduxStore({ middlewares: [sagaMiddleware] });
-const { injectReducers } = createInjectReducer(store);
-const { injectSaga } = createInjectSaga(store, sagaMiddleware.run);
+const createStore = () => {
+  const store = createReduxStore({
+    middlewares: { sagaMiddleware },
+  });
 
-//injecting reducers and sagas
-injectReducers(rootReducer);
-injectSaga('rootSaga', rootSaga);
+  //injecting reducers and sagas
+  const { injectReducers, injectSaga } = store;
+  injectReducers(rootReducer);
+  injectSaga('rootSaga', rootSaga);
 
-console.info({ store });
-export default store;
+  return store;
+};
+
+export default createStore();

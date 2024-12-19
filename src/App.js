@@ -1,12 +1,9 @@
-import { HashRouter } from 'react-router';
-import AppWrapper from './components/common/AppWrapper';
+import { HashRouter } from 'react-router-dom';
 import AppRoutes from './Routes';
-export default () => {
+export default (props) => {
   return (
-    <AppWrapper>
-      <HashRouter>
-        <AppRoutes />
-      </HashRouter>
-    </AppWrapper>
+    <HashRouter>
+      <AppRoutes {...props} />
+    </HashRouter>
   );
 };

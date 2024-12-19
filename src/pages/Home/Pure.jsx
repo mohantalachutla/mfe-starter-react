@@ -6,7 +6,7 @@ import Col from '../../components/base/Col';
 import { Product } from '../../components/Product';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { withWrapper } from 'components/common/AppWrapper';
+import { withStoreWrapper } from 'components/common/StoreWrapper';
 import { helloAction } from '../../actions';
 const ProductPage = ({ products = [] } = props) => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const ProductPage = ({ products = [] } = props) => {
     </Container>
   );
 };
-export default withWrapper(ProductPage);
+export default withStoreWrapper(ProductPage);
 
 ProductPage.propTypes = {
   products: PropTypes.array,

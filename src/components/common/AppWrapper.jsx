@@ -23,7 +23,7 @@ const AppWrapper = ({ children, AdditionalWrapper = Noop }) => {
 
 export default AppWrapper;
 
-export const withWrapper = (Component, AdditionalWrapper) => (props) => (
+export const withAppWrapper = (Component, AdditionalWrapper) => (props) => (
   <AppWrapper AdditionalWrapper={AdditionalWrapper}>
     <Component {...props} />
   </AppWrapper>

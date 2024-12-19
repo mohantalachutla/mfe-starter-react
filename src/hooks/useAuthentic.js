@@ -1,19 +1,18 @@
 import _ from 'lodash';
 import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import useIsLoggedIn from './useIsLoggedIn';
+import useNavigate from './useNavigate';
 
 const logInPaths = ['/login', '/register', '/logout', '/forgot-password'];
+// eslint-disable-next-line no-unused-vars
 const useAuthentic = ({ to = '', replace = false } = {}) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const isLoggedIn = useIsLoggedIn();
-
   useEffect(() => {
     if (!isLoggedIn) {
-      if (!logInPaths.includes(pathname)) {
-        navigate(to || '/login', { replace });
-      }
+      return;
     } else {
       if (!logInPaths.includes(pathname)) return;
       if (logInPaths.includes(pathname)) {
