@@ -1,5 +1,5 @@
 import webpackCommon from '../webpack/webpack.common.cjs';
-import babelConfig from '../babel.config';
+const babelConfig = require('../babel.config.cjs');
 
 export const storybookWebpackConfig = async (config) => {
   config.resolve = {
@@ -10,6 +10,11 @@ export const storybookWebpackConfig = async (config) => {
     },
     modules: [...config.resolve.modules, ...webpackCommon.resolve.modules],
   };
+  config.output = {
+    ...config.output,
+    chunkFormat: 'array-push',
+  };
+  config.target = 'web';
 
   return config;
 };

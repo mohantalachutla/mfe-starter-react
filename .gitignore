@@ -117,3 +117,4 @@ lib
 .pnp.*
 
 *storybook.log
+storybook-static/
