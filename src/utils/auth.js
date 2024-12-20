@@ -1,8 +1,14 @@
+import { jwtDecode } from 'jwt-decode';
 import { TOKEN_KEY } from '../env';
 
 export const verifyToken = (token) => {
-  if (token) {
-    return true;
+  try {
+    const decoded = jwtDecode(token);
+    if (decoded?.exp > Date.now() / 1000) {
+      return true;
+    }
+  } catch {
+    console.error('Invalid token');
   }
   return false;
 };
@@ -15,20 +21,7 @@ export const getToken = () => {
   );
 };
 export const getUser = () => {
-  return {
-    username: 'test',
-    email: 'test',
-    firstName: 'test',
-    lastName: 'test',
-    status: 'test',
-    displayName: 'test',
-    // displayPicture: Buffer.from('', 'base64').toString('ascii'), // Todo: polyfill for Buffer
-    ssn: 'test',
-    createdAt: 'test',
-    updatedAt: 'test',
-    roles: [],
-    permissions: [],
-  };
+  return jwtDecode(getToken());
 };
 
 export const setToken = (token) => {
