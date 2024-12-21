@@ -50,7 +50,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "prepare": "husky"
+    "prepare": "husky",
+    "register": "cross-env APP_REGISTRY_URI=http://localhost:3001 NODE_ENV=production node scripts/startWebpack.js",
+    "register:dev": "cross-env APP_REGISTRY_URI=http://localhost:3001 NODE_ENV=development node scripts/startWebpack.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
@@ -98,6 +100,7 @@
     "autoprefixer": "^10.4.20",
     "babel-jest": "^29.7.0",
     "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.3.0",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^9.16.0",
