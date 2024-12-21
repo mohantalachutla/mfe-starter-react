@@ -1,4 +1,5 @@
 #!/bin/sh
 echo 'Running husky pre-push\n\n'
 npm run build
+npm run test
 npm run sb:build
