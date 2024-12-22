@@ -5,9 +5,7 @@ import { ALERT_TYPES, BANNER_TYPES, MODAL_TYPES } from '../constants';
 const MODAL_DEFAULTS = {
   display: false,
   type: MODAL_TYPES.DEFAULT,
-  header: '',
-  body: '',
-  footer: '',
+  data: '',
 };
 
 const BANNER_DEFAULTS = {
@@ -31,16 +29,19 @@ const modalSlice = createSlice({
   },
   reducers: {
     showModal: (state, action) => {
-      const { type = MODAL_TYPES.DEFAULT, ...payload } = action?.payload ?? {};
+      const {
+        type = MODAL_TYPES.DEFAULT,
+        dismissible = true,
+        ...payload
+      } = action?.payload ?? {};
       if (type === MODAL_TYPES.DEFAULT) {
-        state.modal.body = action?.payload?.body;
-        state.modal.header = action?.payload?.header;
-        state.modal.footer = action?.payload?.footer;
+        state.modal.data = action?.payload?.data;
       } else {
-        state.modal = payload; // for customized modals
+        state.modal.data = payload.data; // for customized modals
       }
       state.modal.type = type;
       state.modal.display = true;
+      state.modal.dismissible = dismissible;
     },
     hideModal: (state) => {
       state.modal = MODAL_DEFAULTS;
