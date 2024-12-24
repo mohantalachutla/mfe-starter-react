@@ -1,10 +1,19 @@
-FROM node:14-alpine
+FROM node:20-alpine
 
-WORKDIR /host_starter
+# setting the working directory
+WORKDIR /app
+# dev
+ENV NODE_ENV=development
+# copying package.json into the container
 COPY ./package.json .
-RUN npm install
-
+# installing dependencies
+RUN npm install --legacy-peer-deps --include=dev
+# copying local files into the container 
 COPY . .
+# building the app
+RUN npm run build
+# expose port
 EXPOSE 8081/tcp
+# running the app
 ENTRYPOINT [ "npm"]
-CMD ["run", "start"]
+CMD ["run", "register"]
