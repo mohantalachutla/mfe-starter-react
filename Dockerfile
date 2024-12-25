@@ -13,7 +13,7 @@ COPY . .
 # building the app
 RUN npm run build
 # expose port
-EXPOSE 8081/tcp
+EXPOSE 9001/tcp
 # running the app
 ENTRYPOINT [ "npm"]
 CMD ["run", "register"]

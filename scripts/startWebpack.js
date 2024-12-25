@@ -17,7 +17,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const spawnWebpackProcess = () => {
   return process.env.NODE_ENV === 'production'
-    ? spawn('serve', ['-s', 'lib', '-p', '8081'], {
+    ? spawn('serve', ['-s', 'lib', '-p', '9001'], {
         stdio: 'inherit',
         shell: true,
       })

@@ -33,10 +33,10 @@
   ],
   "app": {
     "host": "http://localhost",
-    "port": 8081
+    "port": 9001
   },
   "scripts": {
-    "start": "serve -s lib -p 8081",
+    "start": "serve -s lib -p 9001",
     "start:dev": "webpack serve --mode development --live-reload --hot --config ./webpack/webpack.config.cjs ",
     "build": "webpack --mode production --config ./webpack/webpack.config.cjs ",
     "build:dev": "webpack --mode development --watch --config ./webpack/webpack.config.cjs ",
