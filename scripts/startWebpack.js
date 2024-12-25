@@ -1,3 +1,8 @@
+//Others
+const dotEnv = require('dotenv');
+const dotEnvConfig = dotEnv.config();
+const dotenv_expand = require('dotenv-expand').expand;
+dotenv_expand(dotEnvConfig);
 const { spawn } = require('child_process');
 const axios = require('axios');
 const process = require('process');
