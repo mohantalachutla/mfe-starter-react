@@ -30,5 +30,3 @@ function loadDangerously(props = {}) {
 loadDangerously();
 
 window.loadDangerously = loadDangerously;
-
-// TODO: register to be redis

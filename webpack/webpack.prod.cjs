@@ -8,6 +8,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: 'public/assets', to: 'assets' }, // Copies files from `public/assets` to `dist/assets`
+        { from: 'mfe.config.json', to: 'mfe.config.json' },
       ],
     }),
   ],
