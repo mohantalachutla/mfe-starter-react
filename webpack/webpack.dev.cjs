@@ -8,9 +8,9 @@ module.exports = {
     port: port,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
-    // static: {
-    //   directory: path.join(__dirname, 'dist'), // Serve files from dist
-    // },
+    static: {
+      directory: path.join(__dirname, '../public'),
+    },
   },
   devtool: 'eval-source-map',
   stats: 'errors-warnings',
