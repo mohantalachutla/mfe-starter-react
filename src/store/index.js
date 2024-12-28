@@ -2,6 +2,7 @@ import { createReduxStore } from '@mohantalachutla/inject-store';
 import rootReducer from '../reducers';
 import rootSaga from '../sagas';
 import createSagaMiddleware from 'redux-saga';
+import { getProjectName } from '../utils/config';
 
 //sage middleware
 const sagaMiddleware = createSagaMiddleware();
@@ -14,8 +15,10 @@ const createStore = () => {
   //injecting reducers and sagas
   const { injectReducers, injectSaga } = store;
   injectReducers(rootReducer);
-  injectSaga('rootSaga', rootSaga);
-
+  injectSaga(
+    `rootSaga__${getProjectName({ camelCase: true }) || 'app' + new Date().getTime()}`,
+    rootSaga
+  );
   return store;
 };
 

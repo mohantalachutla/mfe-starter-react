@@ -2,6 +2,7 @@ const fs = require('fs');
 const process = require('process');
 const path = require('path');
 const _ = require('lodash');
+const packageJson = require('../package.json');
 // const NodePolyfillPlugin = require('node-polyfill-webpack-plugin'); // broken. look for alternatives
 /**
  * Recursively get all files in a directory that match the given extensions
@@ -66,6 +67,24 @@ const getNodeExternalsPlugin = () => {
     modulesDir: path.resolve(__dirname, '../node_modules'),
   });
 };
+const getProjectName = ({ camelCase = false } = {}) => {
+  let parts = packageJson.name.split('/');
+  let projectName = parts[parts.length - 1];
+  if (camelCase) {
+    projectName = projectName.replace(/[-_]([a-z])/g, (g) =>
+      g[1].toUpperCase()
+    );
+  }
+  return projectName;
+};
+const getOrgName = ({ camelCase = false } = {}) => {
+  let parts = packageJson.name.split('/');
+  let orgName = parts > 1 ? parts[0] : '';
+  if (camelCase) {
+    orgName = orgName.replace(/[-_]([a-z])/g, (g) => g[1].toUpperCase());
+  }
+  return orgName;
+};
 
 module.exports = {
   getFiles,
@@ -75,4 +94,6 @@ module.exports = {
   getFallbackConfig,
   // getPolyfillPlugin,
   getNodeExternalsPlugin,
+  getProjectName,
+  getOrgName,
 };
