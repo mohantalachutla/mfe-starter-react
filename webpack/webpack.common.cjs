@@ -3,6 +3,9 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
+const packageJson = require(path.resolve(__dirname, '../package.json'));
+const appUrl = `${packageJson.app.host}:${packageJson.app.port}/`;
+
 module.exports = {
   entry: {
     index: path.resolve(__dirname, '../src/index.js'),
@@ -10,7 +13,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../lib'),
-    publicPath: '/',
+    publicPath: appUrl,
   },
 
   target: 'web', // target web or node
