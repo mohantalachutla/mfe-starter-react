@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from './reducers/auth';
 import packageJson from '../package.json';
+import { withStoreWrapper } from './components/common/StoreWrapper';
 
 const MFE = (_props = {}) => {
   const [props, setProps] = useState(_props);
@@ -36,4 +37,4 @@ const ProdDisclaimer = () => {
     </div>
   );
 };
-export default MFE;
+export default withStoreWrapper(MFE);

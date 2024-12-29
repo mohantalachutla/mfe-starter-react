@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { withProjectName } from '../utils/config';
+
+export const loaderName = withProjectName('loader');
 
 const loaderSlice = createSlice({
-  name: 'loader',
+  name: loaderName,
   initialState: {
     loading: false,
   },

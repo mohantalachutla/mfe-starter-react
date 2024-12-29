@@ -6,7 +6,6 @@ import 'mfe-helpers/events/handlers';
 import './index.css';
 import MFE from './MFE';
 import ErrorBoundary from 'components/common/ErrorBoundary';
-import AppWrapper from './components/common/AppWrapper';
 
 const rootElement = document.getElementById('app');
 if (!rootElement) throw new Error('Failed to find the root element');
@@ -19,9 +18,7 @@ function loadDangerously(props = {}) {
   root.render(
     <React.StrictMode>
       <ErrorBoundary>
-        <AppWrapper>
-          <MFE {...props} />
-        </AppWrapper>
+        <MFE {...props} />
       </ErrorBoundary>
     </React.StrictMode>
   );

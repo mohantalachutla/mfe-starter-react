@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
 import store from '../../store';
-import { Loader } from './Loader';
+import { GlobalLoader } from './GlobalLoader';
 import ErrorBoundary from './ErrorBoundary';
 import GlobalModal from './GlobalModal';
 import GlobalAlert from './GlobalAlert';
@@ -11,7 +11,7 @@ const AppWrapper = ({ children, AdditionalWrapper = Noop }) => {
     <div id="app-wrapper">
       <ErrorBoundary>
         <Provider store={store}>
-          <Loader />
+          <GlobalLoader />
           <GlobalModal />
           <GlobalAlert />
           <AdditionalWrapper>{children}</AdditionalWrapper>

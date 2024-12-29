@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { ALERT_TYPES, BANNER_TYPES, MODAL_TYPES } from '../constants';
+import { withProjectName } from '../utils/config';
 
 const MODAL_DEFAULTS = {
   display: false,
@@ -20,8 +21,10 @@ const ALERT_DEFAULTS = {
   type: BANNER_TYPES.SUCCESS,
 };
 
+export const modalName = withProjectName('modal');
+
 const modalSlice = createSlice({
-  name: 'modal',
+  name: modalName,
   initialState: {
     modal: MODAL_DEFAULTS,
     banner: BANNER_DEFAULTS,

@@ -1,12 +1,13 @@
 import { useSelector } from 'react-redux';
 import { Spinner as FlowbiteSpinner } from 'flowbite-react';
+import { loaderName } from '../../reducers/loader';
 
-export const Loader = () => {
+export const GlobalLoader = () => {
   const {
     loading,
     loadingType: type,
     loadingMessage: message,
-  } = useSelector((state) => state.loader);
+  } = useSelector((state) => state[loaderName] ?? {});
   if (loading) {
     return <_Loader type={type} message={message} />;
   }

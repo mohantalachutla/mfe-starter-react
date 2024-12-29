@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ALERT_TYPES } from '../../constants';
 import Alert from '../base/Alert';
-import { hideAlert } from '../../reducers/modal';
+import { hideAlert, modalName } from '../../reducers/modal';
 
 const GlobalAlert = () => {
   const dispatch = useDispatch();
-  const { alert } = useSelector((state) => state.modal);
+  const { alert } = useSelector((state) => state[modalName] ?? {});
   const { display = false, type = ALERT_TYPES.SUCCESS, message } = alert;
   if (!display) {
     return null;

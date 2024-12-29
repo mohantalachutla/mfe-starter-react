@@ -2,12 +2,12 @@ import React from 'react';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { MODAL_TYPES } from '../../constants';
-import { hideModal } from '../../reducers/modal';
+import { hideModal, modalName } from '../../reducers/modal';
 import Modal from '../base/Modal';
 
 const GlobalModal = () => {
   const dispatch = useDispatch();
-  const { modal } = useSelector((state) => state?.modal);
+  const { modal } = useSelector((state) => state[modalName] ?? {});
   const {
     display = false,
     dismissible = true,
@@ -18,7 +18,7 @@ const GlobalModal = () => {
   const Component = getModalByType(type);
   return (
     <Modal
-      id="global-modal"
+      id={modalName}
       dismissible={dismissible}
       show={display}
       onClose={() => dispatch(hideModal())}
@@ -32,7 +32,6 @@ const GlobalModal = () => {
 const getModalByType = (type) => {
   switch (type) {
     //add more modals
-
     //default
     case MODAL_TYPES.DEFAULT:
     default:

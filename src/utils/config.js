@@ -9,6 +9,9 @@ export const getProjectName = ({ camelCase = false } = {}) => {
   }
   return projectName;
 };
+export const withProjectName = (str, options = {}) =>
+  `${getProjectName(options)}_${str}`;
+
 export const getOrgName = ({ camelCase = false } = {}) => {
   let parts = packageJson.name.split('/');
   let orgName = parts > 1 ? parts[0] : '';
